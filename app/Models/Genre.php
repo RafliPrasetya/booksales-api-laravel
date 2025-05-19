@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-class Genre
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Genre extends Model
 {
-    public static function all()
-    {
-        return [
-            ['name' => 'Fiksi'],
-            ['name' => 'Non-Fiksi'],
-            ['name' => 'Biografi'],
-            ['name' => 'Teknologi'],
-            ['name' => 'Sejarah'],
-        ];
-    }
+    use HasFactory;
+
+    protected $fillable = ['name'];
 }

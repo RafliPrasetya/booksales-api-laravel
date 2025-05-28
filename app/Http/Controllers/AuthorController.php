@@ -100,23 +100,23 @@ class AuthorController extends Controller
                 'message' => 'Resource not found'
             ], 404);
         }
-           $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
             'email' => 'nullable|email|max:100',  // validasi email dan nullable
         ]);
-           if ($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json([
                 'success' => false,
                 'message' => $validator->errors()
             ], 422);
         }
-         $data = [
+        $data = [
             'name' => $request->name,
             'email' => $request->email,  // sesuaikan dengan field di seeder dan db
         ];
-$author->update($data);
+        $author->update($data);
 
-    return response()->json([
+        return response()->json([
             'success' => true,
             'message' => 'Resource Updated Sussesfully',
             'data' => $author

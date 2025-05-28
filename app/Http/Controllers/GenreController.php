@@ -40,7 +40,6 @@ class GenreController extends Controller
                 'message' => $validator->errors()
             ], 422);
         }
-
         $genre = Genre::create([
             'name' => $request->name,
         ]);
